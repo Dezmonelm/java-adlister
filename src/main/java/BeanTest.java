@@ -10,6 +10,6 @@ public class BeanTest implements Serializable {
         Quote love = new Quote();
         Quote lover = new Quote();
 
-String[] Quote = new Quote;
+
     }
 }
