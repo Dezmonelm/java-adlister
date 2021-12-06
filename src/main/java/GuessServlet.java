@@ -18,35 +18,19 @@ public class GuessServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Random rn = new Random();
 
-        for(int i =1; i < 4; i++)
-        {
-            int answer = rn.nextInt(3) + 1;
-            System.out.println(answer);
+        int answer = rn.nextInt(3) + 1;
+        System.out.println("random num " + answer);
 
-        String one = request.getParameter("one");
-        System.out.println(one);
-        String two = request.getParameter("two");
-        System.out.println(two);
-        String three = request.getParameter("three");
-        System.out.println(three);
-        int num = answer;
-        switch (num) {
-            case 1:
-                System.out.println(one);
-                response.sendRedirect("/correct");
-                break;
-            case 2:
-                System.out.println(two);
-                response.sendRedirect("/correct");
-                break;
-                case 3:
-                System.out.println(three);
-                response.sendRedirect("/correct");
-                break;
-            default:
-                response.sendRedirect("/incorrect");
+        String num = request.getParameter("num");
+        System.out.println(num);
+        boolean correctAnswer = Integer.parseInt(num) == answer;
+        if (correctAnswer) {
+            System.out.println("User was correct");
+//                response.sendRedirect("/correct");
+        } else if (!(correctAnswer)) {
+            System.out.println("User was incorrect");
 
         }
-        }
-        }
+
+    }
 }

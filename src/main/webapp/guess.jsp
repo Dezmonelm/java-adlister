@@ -20,9 +20,9 @@
     <label class="my-1 mr-2" for="num">Preference</label>
     <select name="num" class="custom-select my-1 mr-sm-2" id="num">
         <option selected>Choose...</option>
-        <option name="one" value="one">1</option>
-        <option name="two" value="two">2</option>
-        <option name="three" value="three">3</option>
+        <option name="one" value="1">1</option>
+        <option name="two" value="2">2</option>
+        <option name="three" value="3">3</option>
     </select>
 
     <button type="submit" class="btn btn-primary my-1">Submit</button>
