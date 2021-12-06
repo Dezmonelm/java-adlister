@@ -12,8 +12,8 @@ public class ViewProfileServlet extends HttpServlet {
         // inside of a servlet
         HttpSession session = request.getSession();
 
-        if (session.getAttribute("logged-in") != null) {
-            request.setAttribute("logged", true);
+        if (session.getAttribute("user") != null) {
+            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
         } else {
             response.sendRedirect("/login");
         }
