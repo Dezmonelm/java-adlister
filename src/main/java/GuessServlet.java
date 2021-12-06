@@ -26,10 +26,10 @@ public class GuessServlet extends HttpServlet {
         boolean correctAnswer = Integer.parseInt(num) == answer;
         if (correctAnswer) {
             System.out.println("User was correct");
-//                response.sendRedirect("/correct");
+                response.sendRedirect("/correct");
         } else if (!(correctAnswer)) {
             System.out.println("User was incorrect");
-
+            response.sendRedirect("/incorrect");
         }
 
     }

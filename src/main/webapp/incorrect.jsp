@@ -10,7 +10,7 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-image: ${"Codeup/lose"}">
 <h1>YOU LOSE :(</h1>
 </body>
 </html>
