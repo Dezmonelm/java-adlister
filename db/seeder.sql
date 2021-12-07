@@ -1,6 +1,6 @@
 USE adlister_db;
 
-INSERT INTO user (username, email, password)
+INSERT INTO users (username, email, password)
 VALUES ('Douglas', 'Douglas@user.com',    'Douglas'),
        ('Mark',    'Mark@user.com',    'Mark'),
        ('Kurt',    'Kurt@user.com', 'Kurt');

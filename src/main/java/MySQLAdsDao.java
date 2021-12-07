@@ -4,17 +4,21 @@ import java.util.List;
 
 import com.mysql.cj.jdbc.Driver;
 
-public class MySQLAdsDao implements Ads{
+public class MySQLAdsDao implements Ads {
 
     private Connection connection;
-    private Config config = new Config();
 
-    public MySQLAdsDao() throws SQLException {new Driver();
-        this.connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
-        );
+
+    public MySQLAdsDao(Config config) {
+       try{ new Driver();
+           this.connection = DriverManager.getConnection(
+                   config.getUrl(),
+                   config.getUser(),
+                   config.getPassword()
+           );} catch (SQLException e){
+           e.printStackTrace();
+       }
+
     }
 
     @Override
@@ -24,7 +28,7 @@ public class MySQLAdsDao implements Ads{
         try {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
-            while(rs.next()) {
+            while (rs.next()) {
                 Ad ad = new Ad(
                         rs.getLong("id"),
                         rs.getLong("user_id"),
@@ -38,9 +42,23 @@ public class MySQLAdsDao implements Ads{
         }
         return ads;
     }
+//    jdbc-exercise
 
     @Override
     public Long insert(Ad ad) {
+//        Long lastInsertedId = 0L;
+//        try {
+//            Statement statement = connection.createStatement();
+//            String insertQuery = String.format("INSERT INTO ads (user_id, title, description) VALUES (%d, '%s', '%s')",
+//                    ad.getUserId(), ad.getTitle(), ad.getDescription());
+//            statement.executeUpdate(insertQuery, Statement.RETURN_GENERATED_KEYS);
+//            ResultSet rs = statement.getGeneratedKeys();
+//            rs.next();
+//            lastInsertedId = rs.getLong(1);
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//        return lastInsertedId;
         return null;
     }
 }
