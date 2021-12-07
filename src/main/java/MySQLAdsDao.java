@@ -42,7 +42,7 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
-//    jdbc-exercise
+
 
     @Override
     public Long insert(Ad ad) {
