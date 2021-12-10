@@ -14,10 +14,10 @@ public class DaoFactory {
         return adsDao;
     }
 
-public static Users getUserDao() {
+    public static Users getUserDao() {
         if (userDao == null) {
             userDao = new MySQLUsersDao(config);
         }
         return userDao;
-}
+    }
 }

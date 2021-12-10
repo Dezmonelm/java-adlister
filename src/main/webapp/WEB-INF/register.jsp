@@ -11,6 +11,21 @@
     <title>Registration</title>
 </head>
 <body>
-
+<h1>Register</h1>
+<form method="POST" action="/register">
+    <div>
+        <label for="username">Username</label>
+        <input id="username" name="username" placeholder="Enter username" type="text">
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" placeholder="Enter email" type="email">
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input id="password" name="password" placeholder="Enter password" type="password">
+    </div>
+    <button>Register</button>
+</form>
 </body>
 </html>
