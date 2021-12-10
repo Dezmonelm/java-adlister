@@ -1,9 +1,20 @@
 package com.codeup.adlister.dao;
 
+import sun.security.krb5.Config;
+import sun.security.krb5.KrbException;
+
 public class DaoFactory {
     private static Ads adsDao;
     private static Users usersDao;
-    private static Config config = new Config();
+    private static Config config;
+
+    static {
+        try {
+            config = new Config();
+        } catch (KrbException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static Ads getAdsDao() {
         if (adsDao == null) {

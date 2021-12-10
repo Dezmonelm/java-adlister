@@ -2,6 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
+import sun.security.krb5.Config;
 
 import java.sql.*;
 
@@ -19,6 +20,10 @@ public class MySQLUsersDao implements Users {
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
         }
+    }
+
+    public MySQLUsersDao(Config config) {
+
     }
 
 
