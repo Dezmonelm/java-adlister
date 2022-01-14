@@ -14,11 +14,16 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/login");
+            return;
+        }
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+<<<<<<< HEAD
 
         User currentSessionUser = (User) request.getSession().getAttribute("user");
 
@@ -31,5 +36,15 @@ public class CreateAdServlet extends HttpServlet {
             DaoFactory.getAdsDao().insert(ad);
             response.sendRedirect("/ads");
         }
+=======
+        User user = (User) request.getSession().getAttribute("user");
+        Ad ad = new Ad(
+            user.getId(),
+            request.getParameter("title"),
+            request.getParameter("description")
+        );
+        DaoFactory.getAdsDao().insert(ad);
+        response.sendRedirect("/ads");
+>>>>>>> 89bdba8abb4eeb5dd0a05ce593729f08864bc4d4
     }
 }
